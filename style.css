@@ -1,0 +1,142 @@
+.avatar{
+    width:150px;
+    text-align:center;
+    border-radius:200%;
+}
+
+.option{
+    width:150px;
+    margin:0 auto;
+    padding:5px;
+}
+
+#option_btn{
+    background-color:#130f40;
+    padding:5px;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    border: 2px solid white;
+}
+
+.submit{
+    width:60px;
+    margin:0 auto;
+    padding:5px;
+}
+
+#submit_btn{
+    background-color:#130f40;
+    padding:5px;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    border: 2px solid #be2edd;
+}
+
+.select{
+    width:100px;
+    margin:0 auto;
+    padding:5px;
+}
+
+#select_btn{
+    background-color:#130f40;
+    padding:5px;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    border: 2px solid white;
+    margin-right: 10px;
+}
+
+.insert{
+    width:100px;
+    margin:0 auto;
+    padding:5px;
+}
+
+#insert_btn{
+    background-color:green;
+    padding:5px;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    border: 2px solid white;
+
+}
+
+.data{
+    width:150px;
+    margin:0 auto;
+    padding:5px;
+}
+
+#datacol{
+    background-color:rgb(97, 93, 93);
+    padding:5px;
+    color:white;
+    border: 2px solid rgb(27, 233, 96);
+}
+
+.submit1{
+    width:60px;
+    margin:0 auto;
+    padding:5px;
+}
+
+#submit1_btn{
+    background-color:#130f40;
+    padding:5px;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    border: 2px solid #1B9CFC;
+}
+
+.update{
+    width:100px;
+    margin:0 auto;
+    padding:5px;
+}
+
+#update_btn{
+    background-color:#28c9e6;
+    padding:5px;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    border: 2px solid white;
+
+}
+
+.delete{
+    width:100px;
+    margin:0 auto;
+    padding:5px;
+
+}
+
+#delete_btn{
+    background-color:red;
+    padding:5px;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    border: 2px solid white;
+}
+
+.update1{
+    width:70px;
+    margin:0 auto;
+    padding:5px;
+}
+
+#update1_btn{
+    background-color:#130f40;
+    padding:5px;
+    color:white;
+    text-align:center;
+    font-weight:bold;
+    border: 2px solid #1B9CFC;
+}
