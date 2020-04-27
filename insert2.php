@@ -7,10 +7,11 @@
             $column = $_GET["col2"];
             $ins = $_GET["inscol2"]; 
     
-            $inssql = implode(", ",$ins); //values to be inserted
+            $inssql1 = implode("', '",$ins); //values to be inserted
+            $inssql2 = "'" .$inssql1. "'";
             $colsql = implode(", ",$column); //column name to be inserted
             
-            $sql = "INSERT INTO country($colsql) VALUES($inssql)";
+            $sql = "INSERT INTO country($colsql) VALUES($inssql2)";
             if(mysqli_query($conn,$sql)){
                 echo "Values inserted";
             }
@@ -35,12 +36,18 @@
 		$sql = "SELECT * FROM country;";
         $result = mysqli_query($conn, $sql);
         
+        
 			while($row = mysqli_fetch_assoc($result)){
                 echo "<tr>";
                 foreach($_GET["col2"] as $col2){
                     echo "<td>".$row["$col2"]."</td>";
                 }
-                echo "<td><input type = 'submit' value = 'UPDATE'> <input type = 'submit' value = 'DELETE'></td>";
+                echo '<td><form action="delete2.php" method="get">';
+                    foreach($_GET["col2"] as $col2){
+                        echo "<input type='hidden' value='$col2' name='col2[]'>";
+                    }
+                echo'<input type="hidden" name="primKey" value='.$row["Country_abb"].'> <input type="submit" name="delete" value="DELETE">';
+                echo'<input type="submit" name="update" value="UPDATE"></form></td>'; 
                 echo "</tr>";
             }
         }
