@@ -89,7 +89,7 @@
                 }
                 //echo "<td><input type = 'submit' value = 'UPDATE'> <input type = 'submit' value = 'DELETE'></td>";
                 echo '<td align="center"><form action="delete2.php" method="get">';
-                foreach($_GET["col"] as $col2){
+                foreach($_GET["col2"] as $col2){
                     echo "<input type='hidden' value='$col2' name='col2[]'>";
                 }
                 echo'<input type="hidden" name="primKey" value='.$row["Country_abb"].'> <input type="submit" name="delete" value="DELETE" id="delete_btn" class= "delete"> <input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>';
