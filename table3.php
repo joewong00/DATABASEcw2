@@ -72,9 +72,15 @@
                 foreach($_GET["col3"] as $col3){
                     echo "<td>".$row["$col3"]."</td>";
                 }
-                echo "<td><input type = 'submit' value = 'UPDATE'> <input type = 'submit' value = 'DELETE'></td>";
+                echo '<td><form action="delete3.php" method="get">';
+                    foreach($_GET["col3"] as $col3){
+                        echo "<input type='hidden' value='$col3' name='col3[]'>";
+                    }
+                echo'<input type="hidden" name="primKey[]" value='.$row["Country_abb"].'> <input type="hidden" name="primKey[]" value='.$row["Language"].'>
+                <input type="submit" name="delete" value="DELETE">';
+                echo'<input type="submit" name="update" value="UPDATE"></form></td>'; 
                 echo "</tr>";
-            }
+                }
         }
         else{
             echo "Please select at least one column";
