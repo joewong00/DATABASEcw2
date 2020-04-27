@@ -12,21 +12,21 @@
         $sql = "DELETE FROM lang WHERE Country_abb=($delsql1) AND Language=($delsql2) ";
 
         if(mysqli_query($conn,$sql)){
-            echo "Row deleted";
+            echo "<p> <font color=white>Row deleted";
         }
         else
-            echo "Row not deleted";
+            echo "<p> <font color=white>Row not deleted";
 
         echo "<br>";
         echo "<br>";
-    echo "<table border='1' cellpadding='2'>";
+    echo "<table border='1' cellpadding='2' bordercolor='#fff200' width = '100%'>";
     echo "<tr>";
     
         if(!empty($_GET["col3"])){
             foreach($_GET["col3"] as $col3){
-                echo"<th>$col3</th>";
+                echo"<th><p> <font color=white>$col3</th>";
             }
-            echo"<th>ACTIONS</th>";
+            echo"<th><p> <font color=white>ACTIONS</th>";
         echo"</tr>";
 
 		$sql = "SELECT * FROM lang;";
@@ -35,24 +35,25 @@
 			while($row = mysqli_fetch_assoc($result)){
                 echo "<tr>";
                 foreach($_GET["col3"] as $col3){
-                    echo "<td>".$row["$col3"]."</td>";
+                    echo "<td><p> <font color=white>".$row["$col3"]."</td>";
                 }
-                echo '<td><form action="delete3.php" method="get">';
+                echo '<td align="center"><form action="delete3.php" method="get">';
                     foreach($_GET["col3"] as $col3){
                         echo "<input type='hidden' value='$col3' name='col3[]'>";
                     }
                 echo'<input type="hidden" name="primKey[]" value='.$row["Country_abb"].'> <input type="hidden" name="primKey[]" value='.$row["Language"].'>
-                <input type="submit" name="delete" value="DELETE">';
-                echo'<input type="submit" name="update" value="UPDATE"></form></td>'; 
+                <input type="submit" name="delete" value="DELETE" id="delete_btn" class= "delete">';
+                echo'<input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>'; 
                 echo "</tr>";
             }
         }
+
         echo "</table>";
     }
 
     else{ //if we pressed update
 
-        echo "Enter information:";
+        echo "<p> <font color=white> Enter information:";
         echo "<br>";
        
         echo "<form action = 'update3.php' method = 'get'>";
@@ -60,26 +61,26 @@
         if(!empty($_GET["col3"])){
             foreach($_GET["col3"] as $col3){
                 if($col3 == 'Country_abb')
-                    echo "$col3<input type = 'hidden', value = '$key[0]', name = 'primKey[]' checked> : <input type = 'text' value = '$key[0]'>";
+                    echo "$col3<input type = 'hidden', value = '$key[0]', name = 'primKey[]' checked> : <input type = 'text' value = '$key[0]' id='datacol' class='data'>";
                 else if($col3 == 'Language')
-                    echo "$col3<input type = 'hidden', value = '$key[1]', name = 'primKey[]' checked> : <input type = 'text' value = '$key[1]'>";
+                    echo "$col3<input type = 'hidden', value = '$key[1]', name = 'primKey[]' checked> : <input type = 'text' value = '$key[1]' id='datacol' class='data'>";
                 else 
-                    echo "$col3<input type = 'hidden', value = '$col3', name = 'col3[]' checked> : <input type = 'text' name = 'updcol3[]'>";
+                    echo "$col3<input type = 'hidden', value = '$col3', name = 'col3[]' checked> : <input type = 'text' name = 'updcol3[]' id='datacol' class='data'>";
                 echo "<br>";
                 echo "<br>";
             }
-            echo "<input type = 'submit' name = 'update' value = 'UPDATE'></form>";
+            echo "<input type = 'submit' name = 'update' value = 'UPDATE' id='update1_btn' class='update1'></form>";
         }
 
         echo "<br>";
-    echo "<table border='1' cellpadding='2'>";
+    echo "<table border='1' cellpadding='2' bordercolor='#fff200' width = '100%'>";
     echo "<tr>";
 
         if(!empty($_GET["col3"])){
             foreach($_GET["col3"] as $col3){
-                echo"<th>$col3</th>";
+                echo"<th><p> <font color=white>$col3</th>";
             }
-            echo"<th>ACTIONS</th>";
+            echo"<th><p> <font color=white>ACTIONS</th>";
         echo"</tr>";
 
 		$sql = "SELECT * FROM lang;";
@@ -88,16 +89,15 @@
 			while($row = mysqli_fetch_assoc($result)){
                 echo "<tr>";
                 foreach($_GET["col3"] as $col3){
-                    echo "<td>".$row["$col3"]."</td>";
+                    echo "<td><p> <font color=white>".$row["$col3"]."</td>";
                 }
-                echo '<td><form action="delete3.php" method="get">';
-                foreach($_GET["col3"] as $col3){
+                //echo "<td><input type = 'submit' value = 'UPDATE'> <input type = 'submit' value = 'DELETE'></td>";
+                echo '<td align="center"><form action="delete3.php" method="get">';
+                foreach($_GET["col"] as $col3){
                     echo "<input type='hidden' value='$col3' name='col3[]'>";
                 }
-            echo'<input type="hidden" name="primKey[]" value='.$row["Country_abb"].'> <input type="hidden" name="primKey[]" value='.$row["Language"].'>';
-            echo'<input type="submit" name="delete" value="DELETE"> <input type="submit" name="update" value="UPDATE"></form></td>'; 
-            echo "</tr>";
-                
+                echo'<input type="hidden" name="primKey" value='.$row["Country_abb"].'> <input type="hidden" name="primKey[]" value='.$row["Language"].'>';
+                echo'<input type="submit" name="delete" value="DELETE" id="delete_btn" class= "delete"> <input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>';
                 echo "</tr>";
             }
         }
