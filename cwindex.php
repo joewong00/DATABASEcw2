@@ -34,8 +34,8 @@ if(isset($_GET["table"])){
 		echo "<input type = 'checkbox' name = 'col[]' value = 'Province' checked> Province<br>";
 		echo "<input type = 'checkbox' name = 'col[]' value = 'Population' checked> Population<br>";
 		echo "<br>";
-		echo "<input type = 'submit' name = 'submit' value = 'SELECT'>";
-		echo "<input type = 'submit' name = 'submit' value = 'INSERT'>";
+		echo "<input type = 'submit' name = 'submit' value = 'SELECT' id=select_btn class= 'select'>";
+		echo "<input type = 'submit' name = 'submit' value = 'INSERT' id=select_btn class= 'select'>";
 		echo "</form>";
 		echo "<br>";
 			
@@ -59,8 +59,8 @@ if(isset($_GET["table"])){
 		echo "<input type = 'checkbox' name = 'col2[]' value = 'Capital' checked> Capital<br>";
 		echo "<input type = 'checkbox' name = 'col2[]' value = 'Country_Code' checked> Country_Code<br>";
 		echo "<br>";
-		echo "<input type = 'submit' name = 'submit' value = 'SELECT'>";
-		echo "<input type = 'submit' name = 'submit' value = 'INSERT'>";
+		echo "<input type = 'submit' name = 'submit' value = 'SELECT' id=select_btn class= 'select'>";
+		echo "<input type = 'submit' name = 'submit' value = 'INSERT' id=select_btn class= 'select'>";
 		echo "</form>";
 		echo "<br>";
 		
@@ -72,8 +72,8 @@ if(isset($_GET["table"])){
 		echo "<input type = 'checkbox' name = 'col3[]' value = 'Official' checked> Official<br>";
 		echo "<input type = 'checkbox' name = 'col3[]' value = 'Percentage' checked> Percentage<br>";
 		echo "<br>";
-		echo "<input type = 'submit' name = 'submit' value = 'SELECT'>";
-		echo "<input type = 'submit' name = 'submit' value = 'INSERT'>";
+		echo "<input type = 'submit' name = 'submit' value = 'SELECT' id=select_btn class= 'select'>";
+		echo "<input type = 'submit' name = 'submit' value = 'INSERT' id=select_btn class= 'select'>";
 		echo "</form>";
 		echo "<br>";
 		
