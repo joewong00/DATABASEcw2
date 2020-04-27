@@ -25,11 +25,11 @@ if(isset($_GET["table"])){
 	$table = $_GET["table"];
 	if($table == "city"){
 		echo "<form name = 'table1' action = 'table.php' method = 'get'>";
-		echo "ID<input type = 'checkbox' name = 'col[]' value = 'ID' checked>";
-		echo " City_Name<input type = 'checkbox' name = 'col[]' value = 'City_Name' checked>";
-		echo " Country_abb<input type = 'checkbox' name = 'col[]' value = 'Country_abb' checked>";
-		echo " Province<input type = 'checkbox' name = 'col[]' value = 'Province' checked>";
-		echo " Population<input type = 'checkbox' name = 'col[]' value = 'Population' checked>";
+		echo "<input type = 'checkbox' name = 'col[]' value = 'ID' checked> ID<br>";
+		echo "<input type = 'checkbox' name = 'col[]' value = 'City_Name' checked> City_Name<br>";
+		echo "<input type = 'checkbox' name = 'col[]' value = 'Country_abb' checked> Country_abb<br>";
+		echo "<input type = 'checkbox' name = 'col[]' value = 'Province' checked> Province<br>";
+		echo "<input type = 'checkbox' name = 'col[]' value = 'Population' checked> Population<br>";
 		echo "<br>";
 		echo "<input type = 'submit' name = 'submit' value = 'SELECT'>";
 		echo "<input type = 'submit' name = 'submit' value = 'INSERT'>";
@@ -40,21 +40,21 @@ if(isset($_GET["table"])){
 	}
 	else if($table == "country"){
 		echo "<form name = 'table2' action = 'table2.php' method = 'get'>";
-		echo "Country_abb<input type = 'checkbox' name = 'col2[]' value = 'Country_abb' checked>";
-		echo " Country_Name<input type = 'checkbox' name = 'col2[]' value = 'Country_Name' checked>";
-		echo " Continent<input type = 'checkbox' name = 'col2[]' value = 'Continent' checked>";
-		echo " Region<input type = 'checkbox' name = 'col2[]' value = 'Region' checked>";
-		echo " Area<input type = 'checkbox' name = 'col2[]' value = 'Area' checked>";
-		echo " Year_of_Ind<input type = 'checkbox' name = 'col2[]' value = 'Year_of_Ind' checked>";
-		echo " Population<input type = 'checkbox' name = 'col2[]' value = 'Population' checked>";
-		echo " Life_Expectancy<input type = 'checkbox' name = 'col2[]' value = 'Life_Expectancy' checked>";
-		echo " Gnp<input type = 'checkbox' name = 'col2[]' value = 'Gnp' checked>";
-		echo " Gnp_Old<input type = 'checkbox' name = 'col2[]' value = 'Gnp_Old' checked>";
-		echo " Local_Name<input type = 'checkbox' name = 'col2[]' value = 'Local_Name' checked>";
-		echo " Gov_Form<input type = 'checkbox' name = 'col2[]' value = 'Gov_Form' checked>";
-		echo " Head_of_State<input type = 'checkbox' name = 'col2[]' value = 'Head_of_State' checked>";
-		echo " Capital<input type = 'checkbox' name = 'col2[]' value = 'Capital' checked>";
-		echo " Country_Code<input type = 'checkbox' name = 'col2[]' value = 'Country_Code' checked>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Country_abb' checked> Country_abb<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Country_Name' checked> Country_Name<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Continent' checked> Continent<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Region' checked> Region<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Area' checked> Area<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Year_of_Ind' checked> Year_of_Ind<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Population' checked> Population<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Life_Expectancy' checked> Life_Expectancy<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Gnp' checked> Gnp<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Gnp_Old' checked> Gnp_Old<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Local_Name' checked> Local_Name<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Gov_Form' checked> Gov_Form<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Head_of_State' checked> Head_of_State<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Capital' checked> Capital<br>";
+		echo "<input type = 'checkbox' name = 'col2[]' value = 'Country_Code' checked> Country_Code<br>";
 		echo "<br>";
 		echo "<input type = 'submit' name = 'submit' value = 'SELECT'>";
 		echo "<input type = 'submit' name = 'submit' value = 'INSERT'>";
@@ -64,10 +64,10 @@ if(isset($_GET["table"])){
 	}
 	else if($table == "language"){
 		echo "<form name = 'table3' action = 'table3.php' method = 'get'>";
-		echo "Country_abb<input type = 'checkbox' name = 'col3[]' value = 'Country_abb' checked>";
-		echo " Language<input type = 'checkbox' name = 'col3[]' value = 'Language' checked>";
-		echo " Official<input type = 'checkbox' name = 'col3[]' value = 'Official' checked>";
-		echo " Percentage<input type = 'checkbox' name = 'col3[]' value = 'Percentage' checked>";
+		echo "<input type = 'checkbox' name = 'col3[]' value = 'Country_abb' checked> Country_abb<br>";
+		echo "<input type = 'checkbox' name = 'col3[]' value = 'Language' checked> Language<br>";
+		echo "<input type = 'checkbox' name = 'col3[]' value = 'Official' checked> Official<br>";
+		echo "<input type = 'checkbox' name = 'col3[]' value = 'Percentage' checked> Percentage<br>";
 		echo "<br>";
 		echo "<input type = 'submit' name = 'submit' value = 'SELECT'>";
 		echo "<input type = 'submit' name = 'submit' value = 'INSERT'>";
