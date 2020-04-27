@@ -7,10 +7,11 @@
             $column = $_GET["col3"];
             $ins = $_GET["inscol3"]; 
     
-            $inssql = implode(", ",$ins); //values to be inserted
+            $inssql1 = implode("', '",$ins); //values to be inserted
+            $inssql2 = "'" .$inssql1. "'";
             $colsql = implode(", ",$column); //column name to be inserted
             
-            $sql = "INSERT INTO lang($colsql) VALUES($inssql)";
+            $sql = "INSERT INTO lang($colsql) VALUES($inssql2)";
             if(mysqli_query($conn,$sql)){
                 echo "Values inserted";
             }
@@ -40,7 +41,13 @@
                 foreach($_GET["col3"] as $col3){
                     echo "<td>".$row["$col3"]."</td>";
                 }
-                echo "<td><input type = 'submit' value = 'UPDATE'> <input type = 'submit' value = 'DELETE'></td>";
+                echo '<td><form action="delete3.php" method="get">';
+                    foreach($_GET["col3"] as $col3){
+                        echo "<input type='hidden' value='$col3' name='col3[]'>";
+                    }
+                echo'<input type="hidden" name="primKey[]" value='.$row["Country_abb"].'> <input type="hidden" name="primKey[]" value='.$row["Language"].'>
+                <input type="submit" name="delete" value="DELETE">';
+                echo' <input type="submit" name="update" value="UPDATE"></form></td>'; 
                 echo "</tr>";
             }
         }
