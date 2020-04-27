@@ -5,18 +5,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<link rel="stylesheet" href="style.css">
 </head>
-<body>
-	<h1>WORLD DATABASE</h1>
+<body style="background-color:#000000">
+
+	<h1 style="color: white;">WORLD DATABASE</h1>
+	<img src="globe.gif" class="avatar"/>
+
 	<form action = "cwindex.php" method = "Get">
-	<select name="table">
+	<select name="table" id="option_btn" class="option">
 		<option value="0">Select a table</option>
 		<option value="city">city</option>
 		<option value="country">country</option>
 		<option value="language">language</option> 
 	</select>
-	<input type = "submit">
+	<input type = "submit" id="submit_btn" class="submit">
 	</form>
 	<br>
 
@@ -24,7 +27,7 @@
 if(isset($_GET["table"])){
 	$table = $_GET["table"];
 	if($table == "city"){
-		echo "<form name = 'table1' action = 'table.php' method = 'get'>";
+		echo "<p><font color=white><form name = 'table1' action = 'table.php' method = 'get'>";
 		echo "<input type = 'checkbox' name = 'col[]' value = 'ID' checked> ID<br>";
 		echo "<input type = 'checkbox' name = 'col[]' value = 'City_Name' checked> City_Name<br>";
 		echo "<input type = 'checkbox' name = 'col[]' value = 'Country_abb' checked> Country_abb<br>";
@@ -39,7 +42,7 @@ if(isset($_GET["table"])){
 	
 	}
 	else if($table == "country"){
-		echo "<form name = 'table2' action = 'table2.php' method = 'get'>";
+		echo "<p><font color=white><form name = 'table2' action = 'table2.php' method = 'get'>";
 		echo "<input type = 'checkbox' name = 'col2[]' value = 'Country_abb' checked> Country_abb<br>";
 		echo "<input type = 'checkbox' name = 'col2[]' value = 'Country_Name' checked> Country_Name<br>";
 		echo "<input type = 'checkbox' name = 'col2[]' value = 'Continent' checked> Continent<br>";
@@ -63,7 +66,7 @@ if(isset($_GET["table"])){
 		
 	}
 	else if($table == "language"){
-		echo "<form name = 'table3' action = 'table3.php' method = 'get'>";
+		echo "<p><font color=white><form name = 'table3' action = 'table3.php' method = 'get'>";
 		echo "<input type = 'checkbox' name = 'col3[]' value = 'Country_abb' checked> Country_abb<br>";
 		echo "<input type = 'checkbox' name = 'col3[]' value = 'Language' checked> Language<br>";
 		echo "<input type = 'checkbox' name = 'col3[]' value = 'Official' checked> Official<br>";
