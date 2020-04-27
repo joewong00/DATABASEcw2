@@ -5,7 +5,7 @@
     if ($_GET['submit']=='INSERT'){ //if we pressed insert
         echo "Enter information:";
         echo "<br>";
-        echo "<i>For inserting a text, please enclosed text with quotation(' ')</i>";
+
         echo "<br>";
         echo "<br>";
         echo "<form action = 'insert3.php' method = 'get'>";
@@ -38,7 +38,10 @@
                 foreach($_GET["col3"] as $col3){
                     echo "<td>".$row["$col3"]."</td>";
                 }
-                echo "<td><input type = 'submit' value = 'UPDATE'> <input type = 'submit' value = 'DELETE'></td>";
+            
+                echo '<td><form action="delete3.php" method="get"> <input type="hidden" name="primKey[]" value='.$row["Country_abb"].'> <input type="hidden" name="primKey[]" value='.$row["Language"].'>
+                <input type="submit" name="delete" value="DELETE"> <input type="submit" name="update" value="UPDATE"></form></td>';
+                //echo "<td><input type = 'submit' value = 'UPDATE'> <input type = 'submit' value = 'DELETE'></td>";
                 echo "</tr>";
             }
         }
