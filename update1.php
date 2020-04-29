@@ -29,7 +29,7 @@
     echo "<br>";
     echo "<table border='1' cellpadding='2' bordercolor='#f0932b' width = '100%'>";
     echo "<tr>";
-    array_unshift($column, 'Country_abb');
+    array_unshift($column, 'ID');
     if(isset($_GET['update'])){
         if(!empty($_GET["updcol"])){
             foreach($column as $col){
@@ -47,7 +47,7 @@
                 foreach($column as $col){
                     echo "<td><p><font color=white>".$row["$col"]."</td>";
                 }
-                echo '<td align="center"><form action="delete2.php" method="get">';
+                echo '<td align="center"><form action="delete1.php" method="get">';
                     foreach($column as $col){
                         echo "<input type='hidden' value='$col' name='col[]'>";
                     }
