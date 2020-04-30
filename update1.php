@@ -5,17 +5,33 @@
     if(isset($_GET['update'])){
         if(!empty($_GET['updcol'])){
             $key = $_GET["primKey"]; //primary key of that row
+            $updprimKey = $_GET["updprimKey"]; //update primary key
             $column = $_GET["col"]; //column name array
             $upd = $_GET["updcol"]; //update value array
+            
 
-            foreach ($column as $colkey => $value){
-                $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
-                $sql = "UPDATE city SET $updsql WHERE ID = '$key'";
-                mysqli_query($conn,$sql);
-              }
-
+            $sql = "UPDATE city SET ID = $updprimKey WHERE ID = '$key'";
+            mysqli_query($conn,$sql);
+                    
             if(mysqli_query($conn,$sql)){
-                echo "<p> <font color=white>Values updated for $upd[0]";
+                foreach ($column as $colkey => $value){
+                    $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
+                    $sql = "UPDATE city SET $updsql WHERE ID = '$updprimKey'";
+                    mysqli_query($conn,$sql);
+                }
+            }
+
+            else{
+                echo "<font color=white>Error: " .mysqli_error($conn);
+                foreach ($column as $colkey => $value){
+                    $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
+                    $sql = "UPDATE city SET $updsql WHERE ID = '$updprimKey'";
+                    mysqli_query($conn,$sql);
+                }
+            }
+            
+            if(mysqli_query($conn,$sql)){
+                echo "<font color=white>Values updated for ID = $key";
             }
             else {
                 echo "<p> <font color=white>Values not updated";
@@ -31,6 +47,7 @@
     echo "<table border='1' cellpadding='2' bordercolor='#f0932b' width = '100%'>";
     echo "<tr>";
     array_unshift($column, 'ID');
+    
     if(isset($_GET['update'])){
         if(!empty($_GET["updcol"])){
             foreach($column as $col){
