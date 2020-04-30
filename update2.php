@@ -5,17 +5,33 @@
     if(isset($_GET['update'])){
         if(!empty($_GET['updcol2'])){
             $key = $_GET["primKey"]; //primary key of that row
+            $updprimKey = $_GET["updprimKey"]; //update primary key
             $column = $_GET["col2"]; //column name array
             $upd = $_GET["updcol2"]; //update value array
 
-            foreach ($column as $colkey => $value){
-                $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
-                $sql = "UPDATE country SET $updsql WHERE Country_abb = '$key'";
-                mysqli_query($conn,$sql);
-              }
+
+            $sql = "UPDATE country SET Country_abb = '$updprimKey' WHERE Country_abb = '$key'";
+            mysqli_query($conn,$sql);
 
             if(mysqli_query($conn,$sql)){
-                echo "<p> <font color=white>Values updated for $upd[0]";
+                foreach ($column as $colkey => $value){
+                    $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
+                    $sql = "UPDATE country SET $updsql WHERE Country_abb = '$updprimKey'";
+                    mysqli_query($conn,$sql);
+                }
+            }
+
+            else{
+                echo "<font color=white>Error: " .mysqli_error($conn);
+                foreach ($column as $colkey => $value){
+                    $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
+                    $sql = "UPDATE country SET $updsql WHERE Country_abb = '$key'";
+                    mysqli_query($conn,$sql);
+                }
+            }
+
+            if(mysqli_query($conn,$sql)){
+                echo "<p> <font color=white>Values updated for Country_abb = $key";
             }
             else {
                 echo "<p> <font color=white>Values not updated";
