@@ -10,16 +10,16 @@
 
             $inssql1 = implode("', '",$ins); //values to be inserted
             $inssql2 = "'" . $inssql1 . "'";
-            //echo "$inssql2";
             $colsql = implode(", ",$column); //column name to be inserted
 
             $sql = "INSERT INTO lang($colsql) VALUES($inssql2)";
             if(mysqli_query($conn,$sql)){
-                echo "<p> <font color=white>Values inserted";
+                echo "<p> <font color=white>Inserted $ins[1] into $ins[0]";
             }
-            else
-                echo "<p> <font color=white>Values not inserted";
-
+            else{
+                echo "<p> <font color=white>Values not inserted<br>";
+                echo "Error: " .mysqli_error($conn);
+            }
             echo "<br>";
         }
     }
@@ -49,7 +49,7 @@
                 }
             echo'<input type="hidden" name="primKey[]" value='.$row["Country_abb"].'> <input type="hidden" name="primKey[]" value='.$row["Language"].'>
             <input type="submit" name="delete" value="DELETE" id="delete_btn" class= "delete">';
-            echo' <input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>'; 
+            echo' <input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>';
             echo "</tr>";
         }
     }
