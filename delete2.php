@@ -66,7 +66,7 @@
         if(!empty($_GET["col2"])){
             foreach($_GET["col2"] as $col2){
                 if($col2 == 'Country_abb')
-                    echo "<p> <font color=white>$col2<input type = 'hidden', value = '$key', name = 'primKey' checked> : <input type = 'text' value = '$key' id='datacol' class='data'>";
+                    echo "<p> <font color=white>$col2<input type = 'hidden', value = '$key', name = 'primKey' checked> : <input type = 'text' name = 'updprimKey' value = '$key' id='datacol' class='data'>";
                 else
                     echo "<p> <font color=white>$col2<input type = 'hidden', value = '$col2', name = 'col2[]' checked> : <input type = 'text' name = 'updcol2[]' id='datacol' class='data'>";
                 echo "<br>";
