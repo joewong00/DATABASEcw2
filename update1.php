@@ -3,23 +3,26 @@
     include 'cwindex.php';
 
     if(isset($_GET['update'])){
-        if(!empty($_GET['updcol2'])){
+        if(!empty($_GET['updcol'])){
             $key = $_GET["primKey"]; //primary key of that row
-            $column = $_GET["col2"]; //column name array
-            $upd = $_GET["updcol2"]; //update value array
+            $column = $_GET["col"]; //column name array
+            $upd = $_GET["updcol"]; //update value array
 
             foreach ($column as $colkey => $value){
                 $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
-                $sql = "UPDATE country SET $updsql WHERE Country_abb = '$key'";
+                $sql = "UPDATE city SET $updsql WHERE ID = '$key'";
                 mysqli_query($conn,$sql);
               }
-            
-            if(mysqli_query($conn,$sql)){
-                echo "<p> <font color=white>Values updated";
-            }
-            else
-                echo "<p> <font color=white>Values not updated";
 
+            if(mysqli_query($conn,$sql)){
+                echo "<p> <font color=white>Values updated for $upd[0]";
+            }
+            else {
+                echo "<p> <font color=white>Values not updated";
+                // print code
+                echo "<br><br>$sql<br>";
+                echo "Error: " .mysqli_error($conn);
+            }
             echo "<br>";
         }
     }
@@ -27,30 +30,30 @@
     echo "<br>";
     echo "<table border='1' cellpadding='2' bordercolor='#f0932b' width = '100%'>";
     echo "<tr>";
-    array_unshift($column, 'Country_abb'); 
+    array_unshift($column, 'ID');
     if(isset($_GET['update'])){
-        if(!empty($_GET["updcol2"])){
-            foreach($column as $col2){
-                echo"<th><p> <font color=white>$col2</th>";
+        if(!empty($_GET["updcol"])){
+            foreach($column as $col){
+                echo"<th><p> <font color=white>$col</th>";
             }
             echo"<th><p> <font color=white>ACTIONS</th>";
         echo"</tr>";
 
-		$sql = "SELECT * FROM country;";
+		$sql = "SELECT * FROM city;";
         $result = mysqli_query($conn, $sql);
-        
-        
+
+
 			while($row = mysqli_fetch_assoc($result)){
                 echo "<tr>";
-                foreach($column as $col2){
-                    echo "<td><p> <font color=white>".$row["$col2"]."</td>";
+                foreach($column as $col){
+                    echo "<td><p> <font color=white>".$row["$col"]."</td>";
                 }
-                echo '<td align="center"><form action="delete2.php" method="get">';
-                    foreach($column as $col2){
-                        echo "<input type='hidden' value='$col2' name='col2[]'>";
+                echo '<td align="center"><form action="delete1.php" method="get">';
+                    foreach($column as $col){
+                        echo "<input type='hidden' value='$col' name='col[]'>";
                     }
-                echo'<input type="hidden" name="primKey" value='.$row["Country_abb"].'> <input type="submit" name="delete" value="DELETE" id="delete_btn" class= "delete">';
-                echo'<input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>'; 
+                echo'<input type="hidden" name="primKey" value='.$row["ID"].'> <input type="hidden" name="name" value='.$row["City_Name"].'> <input type="submit" name="delete" value="DELETE" id="delete_btn" class= "delete">';
+                echo'<input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>';
                 echo "</tr>";
             }
         }
