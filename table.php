@@ -58,7 +58,7 @@
     }
 
     else { //if we pressed select
-    echo "<b><ul><u>city</b></ul></u>";
+    echo "<b><ul><u><font color = white>city</b></ul></u>";
     echo "<br>";
     echo "<table border='1' cellpadding='2' bordercolor='#c23616' width = '100%'>";
     echo "<tr>";
