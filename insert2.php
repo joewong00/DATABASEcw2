@@ -4,6 +4,7 @@
 
     if(isset($_GET['insert'])){
         if(!empty($_GET['inscol2'])){
+
             $column = $_GET["col2"];
             $ins = $_GET["inscol2"];
 
@@ -13,13 +14,12 @@
 
             $sql = "INSERT INTO country($colsql) VALUES($inssql2)";
             if(mysqli_query($conn,$sql)){
-                echo "<p> <font color=white>Values inserted";
+                echo "<p> <font color=white>Inserted $ins[1] ($ins[0])";
             }
             else{
                 echo "<p> <font color=white>Values not inserted<br>";
-		echo "Error: " .mysqli_error($conn);
-	    }
-
+                echo "Error: " .mysqli_error($conn);
+            }
             echo "<br>";
         }
     }
@@ -47,8 +47,8 @@
                 foreach($_GET["col2"] as $col2){
                     echo "<input type='hidden' value='$col2' name='col2[]'>";
                 }
-            echo'<input type="hidden" name="primKey" value='.$row["Country_abb"].'> <input type="submit" name="delete" value="DELETE" id="delete_btn" class= "delete">';
-            echo'<input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>'; 
+            echo'<input type="hidden" name="primKey" value='.$row["Country_abb"].'> <input type="hidden" name="name" value='.$row["Country_Name"].'> <input type="submit" name="delete" value="DELETE" id="delete_btn" class= "delete">';
+            echo'<input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>';
             echo "</tr>";
         }
     }
