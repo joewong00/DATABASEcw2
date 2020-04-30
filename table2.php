@@ -53,7 +53,7 @@
     }
 
     else{ //if we pressed select
-    echo "<b><ul><u>country</b></ul></u>";
+    echo "<b><ul><u><font color = white>country</b></ul></u>";
     echo "<br>";
     echo "<table border='1' cellpadding='2' bordercolor='#f0932b' width = '100%'>";
     echo "<tr>";
