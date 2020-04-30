@@ -5,17 +5,32 @@
     if(isset($_GET['update'])){
         if(!empty($_GET['updcol3'])){
             $key = $_GET["primKey"]; //primary key of that row
+            $updprimKey = $_GET["updprimKey"]; //update primary key
             $column = $_GET["col3"]; //column name array
             $upd = $_GET["updcol3"]; //update value array
 
-            foreach ($column as $colkey => $value){
-                $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
-                $sql = "UPDATE lang SET $updsql WHERE Country_abb = '$key[0]' AND Language = '$key[1]'";
-                mysqli_query($conn,$sql);
-              }
+            $sql = "UPDATE lang SET Country_abb = '$updprimKey[0]', Language = '$updprimKey[1]' WHERE Country_abb = '$key[0]' AND Language = '$key[1]'";
+            mysqli_query($conn,$sql);
 
             if(mysqli_query($conn,$sql)){
-                echo "<p> <font color=white>Values updated for $key[1] for $key[0]";
+            foreach ($column as $colkey => $value){
+                $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
+                $sql = "UPDATE lang SET $updsql WHERE Country_abb = '$updprimKey[0]' AND Language = '$updprimKey[1]'";
+                mysqli_query($conn,$sql);
+              }
+            }
+
+            else{
+                echo "<font color=white>Error: " .mysqli_error($conn);
+                foreach ($column as $colkey => $value){
+                    $updsql = "{$column[$colkey]} = '{$upd[$colkey]}'";
+                    $sql = "UPDATE lang SET $updsql WHERE Country_abb = '$key[0]' AND Language = '$key[1]'";
+                    mysqli_query($conn,$sql);
+                  }
+            }
+
+            if(mysqli_query($conn,$sql)){
+                echo "<p> <font color=white>Values updated for Country_abb = $key[0] and Language = $key[1]";
             }
             else{
                 echo "<p> <font color=white>Values not updated";
