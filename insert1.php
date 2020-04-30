@@ -14,17 +14,19 @@
             $colsql = implode(", ",$column); //column name to be inserted
 
             $sql = "INSERT INTO city($colsql) VALUES($inssql2)";
+
             if(mysqli_query($conn,$sql)){
-                echo "<p> <font color=white>Values inserted";
+                echo "<p> <font color=white>Inserted $ins[1] with ID #$ins[0]";
             }
             else{
-                echo "<p> <font color=white>Values not inserted<br>";
-		    echo "Error: " .mysqli_error($conn);
-	    }
-
+                echo "<p> <font color=white>Values not inserted";
+                echo "Error: " .mysqli_error($conn);
+            }
             echo "<br>";
         }
     }
+    // print code
+    echo "<br>$sql<br>";
 
     echo "<br>";
     echo "<table border='1' cellpadding='2' bordercolor='#c23616' width = '100%'>";
@@ -50,7 +52,7 @@
                     echo "<input type='hidden' value='$col' name='col[]'>";
                 }
             echo'<input type="hidden" name="primKey" value='.$row["ID"].'> <input type="submit" name="delete" value="DELETE" id="delete_btn" class= "delete">';
-            echo'<input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>'; 
+            echo'<input type="submit" name="update" value="UPDATE" id="update_btn" class= "update"></form></td>';
             echo "</tr>";
         }
     }
