@@ -55,6 +55,7 @@
     }
 
     else{ //if we pressed select
+    echo "<b><ul><u><font color = white>language</b></ul></u>";
     echo "<br>";
     echo "<table border='1' cellpadding='2' bordercolor='#fff200' width = '100%'>";
     echo "<tr>";
