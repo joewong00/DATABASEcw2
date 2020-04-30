@@ -15,8 +15,10 @@
             if(mysqli_query($conn,$sql)){
                 echo "<p> <font color=white>Values inserted";
             }
-            else
-                echo "<p> <font color=white>Values not inserted";
+            else{
+                echo "<p> <font color=white>Values not inserted<br>";
+		echo "Error: " .mysqli_error($conn);
+	    }
 
             echo "<br>";
         }
